@@ -54,9 +54,6 @@ public class TransportServiceImpl implements TransportService {
 
     @Override
     public List<Transport> findAllTransports() {
-        if (transportRepo.findAll().isEmpty()) {
-            System.out.println("Список пуст !");
-        }
         return transportRepo.findAll();
     }
 
@@ -74,7 +71,7 @@ public class TransportServiceImpl implements TransportService {
                 }
             }
         } else {
-            System.out.println("Введено некоректное значение ! ");
+            System.err.println("Введено некоректное значение ! ");
         }
 
         if (list.isEmpty()) {
@@ -95,7 +92,7 @@ public class TransportServiceImpl implements TransportService {
         }
 
         if (tempList.isEmpty()) {
-            System.out.println("Лист пуст !");
+            System.err.println("Лист пуст !");
         }
         return tempList;
     }

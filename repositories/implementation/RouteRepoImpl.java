@@ -36,7 +36,12 @@ public class RouteRepoImpl implements RouteRepo {
 
     @Override
     public Route findById(Integer id) {
-        return listOfRoutes.get(id);
+        for (Route route: listOfRoutes) {
+            if (route.getId().equals(id)){
+                return route;
+            }
+        }
+        return null;
     }
 
     @Override

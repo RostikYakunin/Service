@@ -53,7 +53,7 @@ public class DriverServiceImpl implements DriverService {
         if (driversRepo.findById(id) != null) {
             return driversRepo.findById(id);
         } else {
-            System.out.println("Водителя с данным id не существует");
+            System.err.println("Водителя с данным id не существует");
         }
         return driversRepo.findById(id);
     }
@@ -71,7 +71,7 @@ public class DriverServiceImpl implements DriverService {
                 }
             }
         } else {
-            System.out.println("Введено некоректное значение ! ");
+            System.err.println("Введено некоректное значение ! ");
         }
 
         if (list.isEmpty()){
@@ -82,9 +82,6 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public List<Driver> findAllDrivers() {
-        if(driversRepo.findAll().isEmpty()){
-            System.out.println("Список пуст !");
-        }
         return driversRepo.findAll();
     }
 
@@ -95,10 +92,10 @@ public class DriverServiceImpl implements DriverService {
             if (route.getTransport().getDriver() != null) {
                 drivers.add(route.getTransport().getDriver());
             } else {
-                System.out.println("На данном маршруте водитель отсутствует !");
+                System.err.println("На данном маршруте водитель отсутствует !");
             }
         } else {
-            System.out.println("Заданного маршрута не существует !");
+            System.err.println("Заданного маршрута не существует !");
         }
         return drivers;
     }
@@ -115,7 +112,7 @@ public class DriverServiceImpl implements DriverService {
         }
 
         if (transportListtemp.isEmpty()) {
-            System.out.println("Лист пуст !");
+            System.err.println("Лист пуст !");
         }
         return transportListtemp;
     }
@@ -126,7 +123,7 @@ public class DriverServiceImpl implements DriverService {
             if (driver.getQualificationEnum().equals(transport.getDriverQualificationEnum())) {
                 transport.setDriver(driver);
             } else {
-                System.out.println("Невозможно добавить водителя на транспорт !" +
+                System.err.println("Невозможно добавить водителя на транспорт !" +
                         "Квалификация водителя или транспорта не совпадают !");
                 return null;
             }

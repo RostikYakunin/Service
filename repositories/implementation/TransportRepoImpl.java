@@ -32,7 +32,12 @@ public class TransportRepoImpl implements TransportRepo {
 
     @Override
     public Transport findById(Integer id) {
-        return listOfTransports.get(id);
+        for (Transport transport: listOfTransports) {
+            if (transport.getId().equals(id)){
+                return transport;
+            }
+        }
+        return null;
     }
 
     @Override
