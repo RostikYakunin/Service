@@ -18,6 +18,7 @@ import courseworke3.services.implementation.TransportServiceImpl;
 import courseworke3.services.interfaces.DriverService;
 import courseworke3.services.interfaces.RouteService;
 import courseworke3.services.interfaces.TransportService;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -44,7 +45,7 @@ public class ConsolePanel {
         startPanel();
     }
 
-    private void startPanel () throws InterruptedException {
+    private void startPanel() throws InterruptedException {
         System.out.println("============================================================================================");
         System.out.println("Главное меню ! \nВведите действие которое хотите выполнить !");
         System.out.println("Добавить транспорт - введите \"1\" ");
@@ -70,15 +71,16 @@ public class ConsolePanel {
                     addDriver();
                     break;
                 case 4:
-//                    serviceForTransports();
+                    serviceForTransports();
                     break;
                 case 5:
 //                    serviceForRouts();
                     break;
                 case 6:
-                    serviceForDrivers ();
+                    serviceForDrivers();
                     break;
-                case 7: System.exit(0);
+                case 7:
+                    System.exit(0);
                     break;
                 default:
                     System.err.println("Введено некоректное значение ! Возвращаю в главное меню !");
@@ -108,7 +110,7 @@ public class ConsolePanel {
                 if (id % 2 != 1 && id % 2 != 0) {
                     System.err.println("Введенное число не являеться целым ! Возвращаю на начало создания транспорта");
                     addTransport();
-                } else if (id<0){
+                } else if (id < 0) {
                     System.err.println("Введенное число меньше 0 ! Возвращаю на начало создания транспорта");
                     addTransport();
                 } else {
@@ -121,7 +123,7 @@ public class ConsolePanel {
                     if (passangers % 2 != 1 && passangers % 2 != 0) {
                         System.err.println("Введенное число не являеться целым ! Возвращаю на начало создания транспорта");
                         addTransport();
-                    } else if (passangers<0){
+                    } else if (passangers < 0) {
                         System.err.println("Введенное число меньше 0 ! Возвращаю на начало создания транспорта");
                         addTransport();
                     } else {
@@ -134,11 +136,11 @@ public class ConsolePanel {
                         if (doors % 2 != 1 && doors % 2 != 0) {
                             System.err.println("Введенное число не являеться целым ! Возвращаю на начало создания транспорта");
                             addTransport();
-                        } else if (doors<0){
+                        } else if (doors < 0) {
                             System.err.println("Введенное число меньше 0 ! Возвращаю на начало создания транспорта");
                             addTransport();
                         } else {
-                            bus = new Bus(id,brand,passangers,false,
+                            bus = new Bus(id, brand, passangers, false,
                                     DriverQualificationEnum.BUS_DRIVER, type, doors);
                         }
                     }
@@ -148,13 +150,13 @@ public class ConsolePanel {
                 startPanel();
             }
             //создание трамвая
-            if (switchTransports==2) {
+            if (switchTransports == 2) {
                 System.out.println("Введите id трамвая: \"id должно быть целым числом и не может быть меньше 0\" ");
                 int id = in.nextInt();
                 if (id % 2 != 1 && id % 2 != 0) {
                     System.err.println("Введенное число не являеться целым ! Возвращаю на начало создания транспорта");
                     addTransport();
-                } else if (id<0){
+                } else if (id < 0) {
                     System.err.println("Введенное число меньше 0 ! Возвращаю на начало создания транспорта");
                     addTransport();
                 } else {
@@ -166,7 +168,7 @@ public class ConsolePanel {
                     if (passangers % 2 != 1 && passangers % 2 != 0) {
                         System.err.println("Введенное число не являеться целым ! Возвращаю на начало создания транспорта");
                         addTransport();
-                    } else if (passangers<0){
+                    } else if (passangers < 0) {
                         System.err.println("Введенное число меньше 0 ! Возвращаю на начало создания транспорта");
                         addTransport();
                     } else {
@@ -176,11 +178,11 @@ public class ConsolePanel {
                         if (railcar % 2 != 1 && railcar % 2 != 0) {
                             System.err.println("Введенное число не являеться целым ! Возвращаю на начало создания транспорта");
                             addTransport();
-                        } else if (railcar<0){
+                        } else if (railcar < 0) {
                             System.err.println("Введенное число меньше 0 ! Возвращаю на начало создания транспорта");
                             addTransport();
                         } else {
-                            tram = new Tram(id,brand,passangers,false,
+                            tram = new Tram(id, brand, passangers, false,
                                     DriverQualificationEnum.TRAM_DRIVER, railcar);
                         }
                     }
@@ -195,7 +197,7 @@ public class ConsolePanel {
         }
     }
 
-    private void addRoute () throws InterruptedException {
+    private void addRoute() throws InterruptedException {
         System.out.println("Введите id маршрута");
         Scanner in = new Scanner(System.in);
         int id = in.nextInt();
@@ -206,14 +208,14 @@ public class ConsolePanel {
             System.out.println("Введите начало маршрута");
             Scanner in1 = new Scanner(System.in);
             String start = in1.nextLine();
-            if (start == null){
+            if (start == null) {
                 System.out.println("Введено некоректное значение ! Возвращаю на начало создание маршрута !");
                 addRoute();
             } else {
                 System.out.println("Введите конец маршрута");
                 Scanner in2 = new Scanner(System.in);
                 String end = in2.nextLine();
-                if(end == null){
+                if (end == null) {
                     System.out.println("Введено некоректное значение ! Возвращаю на начало создание маршрута !");
                     addRoute();
                 } else {
@@ -223,28 +225,28 @@ public class ConsolePanel {
                 }
             }
         }
-    startPanel();
+        startPanel();
     }
 
     private void addDriver() {
         System.out.println("Введите id водителя: ");
         Scanner in1 = new Scanner(System.in);
         int id = in1.nextInt();
-        if (id<0) {
+        if (id < 0) {
             System.out.println("Введено некоректное значение ! Возвращаю в начало добавления водителя !");
             addDriver();
         } else {
             System.out.println("Введите имя водителя: ");
             Scanner in2 = new Scanner(System.in);
             String name = in2.nextLine();
-            if (name == null){
+            if (name == null) {
                 System.out.println("Введено некоректное значение ! Возвращаю в начало добавления водителя !");
                 addDriver();
-            }else {
+            } else {
                 System.out.println("Введите фамилию водителя: ");
                 Scanner in3 = new Scanner(System.in);
                 String surname = in3.nextLine();
-                if(surname == null){
+                if (surname == null) {
                     System.out.println("Введено некоректное значение ! Возвращаю в начало добавления водителя !");
                     addDriver();
                 } else {
@@ -262,16 +264,18 @@ public class ConsolePanel {
                         DriverQualificationEnum driverQualificationEnum = null;
 
                         switch (quality) {
-                            case 1: driverQualificationEnum = DriverQualificationEnum.BUS_DRIVER;
+                            case 1:
+                                driverQualificationEnum = DriverQualificationEnum.BUS_DRIVER;
                                 break;
-                            case 2: driverQualificationEnum = DriverQualificationEnum.TRAM_DRIVER;
+                            case 2:
+                                driverQualificationEnum = DriverQualificationEnum.TRAM_DRIVER;
                                 break;
                             default:
                                 System.out.println("Введено некоректное значение ! Возвращаю в начало добавления водителя !");
                         }
-                        Driver driver = new Driver(id, name, surname,number,driverQualificationEnum);
+                        Driver driver = new Driver(id, name, surname, number, driverQualificationEnum);
                         driverService.addDriver(driver);
-                        System.out.println("Вы успешно добавили водителя: "+ driver);
+                        System.out.println("Вы успешно добавили водителя: " + driver);
 
                     }
                 }
@@ -279,7 +283,7 @@ public class ConsolePanel {
         }
     }
 
-    private void serviceForDrivers () throws InterruptedException {
+    private void serviceForDrivers() throws InterruptedException {
         System.out.println("===========================================================================================");
         System.out.println("Введите номер желаемого действия: \n");
         System.out.println("Добавить водителя введите - 1 ");
@@ -294,9 +298,10 @@ public class ConsolePanel {
 
         Scanner in1 = new Scanner(System.in);
         int switcher = in1.nextInt();
-        switch (switcher){
+        switch (switcher) {
             case 1:
                 addDriver();
+                timerForDrivers();
                 break;
 
             case 2:
@@ -362,12 +367,101 @@ public class ConsolePanel {
         }
     }
 
-    private void timerForDrivers () throws InterruptedException {
+    private void timerForDrivers() throws InterruptedException {
         System.out.println("Через 5 секунд возвращаю в меню сервиса водителей !");
         Thread.sleep(5000);
         serviceForDrivers();
     }
 
+    private void serviceForTransports() throws InterruptedException {
+
+        System.out.println("===========================================================================================");
+        System.out.println("Введите номер желаемого действия: \n");
+        System.out.println("Добавить транспорт введите - 1 ");
+        System.out.println("Удалить транспорт введите - 2");
+        System.out.println("Найти транспорт по id введите - 3 ");
+        System.out.println("Найти все транспорты введите - 4 ");
+        System.out.println("Найти транспорт по марке введите - 5 ");
+        System.out.println("Найти все транспорты без водителей - 6 ");
+        System.out.println("Добавить транспорт на заданный маршрут - 7 ");
+        System.out.println("Удалить транспорт с заданного маршрута - 8 ");
+        System.out.println("Вернуться в главное меню - 9 ");
+
+        Scanner in1 = new Scanner(System.in);
+        int switcher = in1.nextInt();
+
+        switch (switcher) {
+            case 1:
+                addTransport();
+                timerForTransports();
+                break;
+            case 2:
+                Scanner in2 = new Scanner(System.in);
+                System.out.println("Введите id транспорта который хотите удалить: ");
+                int id = in2.nextInt();
+                transportService.removeTransport(id);
+                timerForTransports();
+                break;
+            case 3:
+                Scanner in3 = new Scanner(System.in);
+                System.out.println("Введите id транспорта который хотите найти : ");
+                int id2 = in3.nextInt();
+                transportService.findTransportById(id2);
+                timerForTransports();
+                break;
+            case 4:
+                transportService.findAllTransports();
+                timerForTransports();
+                break;
+            case 5:
+                Scanner in4 = new Scanner(System.in);
+                System.out.println("Введите марку транспортов которые хотите найти: ");
+                String brand = in4.nextLine();
+                transportService.findTransportByBrand(brand);
+                timerForTransports();
+                break;
+            case 6:
+                transportService.findTransportWithoutDriver();
+                timerForTransports();
+                break;
+            case 7:
+                Scanner in5 = new Scanner(System.in);
+                System.out.println("Введите id транспорта который хотите добавить: ");
+                int id5 = in5.nextInt();
+
+                System.out.println("Введите маршрута куда хотите добавить транспорт:");
+                int id6 = in5.nextInt();
+
+                transportService.addTransportToRoute(id5, routeService.findRouteById(id6));
+                timerForTransports();
+                break;
+            case 8:
+                Scanner in6 = new Scanner(System.in);
+                System.out.println("Введите id транспорта который хотите удалить: ");
+                int idTr = in6.nextInt();
+
+                System.out.println("Введите маршрута от куда хотите удалить транспорт:");
+                int idR = in6.nextInt();
+
+                transportService.removeTransportFromRoute(transportService.findTransportById(idTr), routeService.findRouteById(idR));
+                timerForTransports();
+                break;
+
+            case 9:
+                startPanel();
+                break;
+
+            default:
+                System.out.println("Некоректный ввод ! Попробуйте снова");
+                serviceForTransports();
+        }
+    }
+
+    private void timerForTransports() throws InterruptedException {
+        System.out.println("Через 5 секунд возвращаю в меню сервиса транспорта !");
+        Thread.sleep(5000);
+        serviceForTransports();
+    }
 
 } //end of class
 
