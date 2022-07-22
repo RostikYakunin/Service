@@ -26,11 +26,7 @@ public class TransportRepoImpl implements TransportRepo {
     @Override
     public void remove(Integer id) {
         List<Transport> list = listOfTransports;
-        for (Transport t: list) {
-            if (t.getId().equals(id)) {
-                t = null;
-            }
-        }
+        list.remove(findById(id));
         listOfTransports = list;
     }
 
@@ -43,5 +39,4 @@ public class TransportRepoImpl implements TransportRepo {
     public List<Transport> findAll() {
         return listOfTransports;
     }
-
 }
