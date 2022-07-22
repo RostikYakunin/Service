@@ -2,6 +2,7 @@ package courseworke3.repositories.implementation;
 
 
 import courseworke3.models.Route;
+import courseworke3.models.drivers.Driver;
 import courseworke3.models.transports.Transport;
 import courseworke3.repositories.repointerfaces.TransportRepo;
 
@@ -10,9 +11,9 @@ import java.util.List;
 
 public class TransportRepoImpl implements TransportRepo {
 
-    private final List<Transport> listOfTransports;
+    private List<Transport> listOfTransports;
 
-    public TransportRepoImpl () {
+    public TransportRepoImpl() {
         this.listOfTransports = new ArrayList<>();
     }
 
@@ -24,8 +25,13 @@ public class TransportRepoImpl implements TransportRepo {
 
     @Override
     public void remove(Integer id) {
-        List <Transport> temp = listOfTransports;
-        temp.remove(findById(id));
+        List<Transport> list = listOfTransports;
+        for (Transport t: list) {
+            if (t.getId().equals(id)) {
+                t = null;
+            }
+        }
+        listOfTransports = list;
     }
 
     @Override

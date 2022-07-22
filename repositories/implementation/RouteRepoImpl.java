@@ -2,6 +2,7 @@ package courseworke3.repositories.implementation;
 
 
 import courseworke3.models.Route;
+import courseworke3.models.drivers.Driver;
 import courseworke3.repositories.repointerfaces.RouteRepo;
 
 import java.util.ArrayList;
@@ -28,8 +29,13 @@ public class RouteRepoImpl implements RouteRepo {
 
     @Override
     public void remove(Integer id) {
-        List <Route> temp = listOfRoutes;
-        temp.remove(findById(id));
+        List <Route> list = listOfRoutes;
+        for (Route r:list) {
+            if (r.getId().equals(id)) {
+                r = null;
+            }
+        }
+        listOfRoutes = list;
     }
 
     @Override
