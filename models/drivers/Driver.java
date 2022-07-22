@@ -77,12 +77,7 @@ public class Driver {
 
     @Override
     public String toString() {
-        return "Driver{" +
-                "id=" + id +
-                ", nameOfDriver='" + nameOfDriver + '\'' +
-                ", surnameOfDriver='" + surnameOfDriver + '\'' +
-                ", numberOfPhone='" + numberOfPhone + '\'' +
-                ", qualificationEnum=" + qualificationEnum +
-                '}';
+        return "\nВодитель № "+ id + ", имя: "+ nameOfDriver + ", фамилия: "+ surnameOfDriver+ ", номер телефона: " + numberOfPhone +
+                ", квалификация: " + qualificationEnum;
     }
 }

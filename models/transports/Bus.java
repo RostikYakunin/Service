@@ -30,5 +30,8 @@ public class Bus extends Transport{
         this.numbersOfDoors = numbersOfDoors;
     }
 
-
+    @Override
+    public String toString() {
+        return super.toString() + ", тип транспорта: " + type+ ", количество дверей: " + numbersOfDoors;
+    }
 }

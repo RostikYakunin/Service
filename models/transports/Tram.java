@@ -19,4 +19,9 @@ public class Tram extends Transport{
     public void setNumbersOfRailcar(Integer numbersOfRailcar) {
         this.numbersOfRailcar = numbersOfRailcar;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + ", количество вагонов: " + numbersOfRailcar;
+    }
 }

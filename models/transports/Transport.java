@@ -103,14 +103,7 @@ public class Transport {
 
     @Override
     public String toString() {
-        return "\nTransport{" +
-                "id=" + id +
-                ", brandOfTransport='" + brandOfTransport + '\'' +
-                ", numbersOfPassengers=" + numbersOfPassengers +
-                ", hasDriver=" + hasDriver +
-                ", route=" + route +
-                ", driverQualificationEnum=" + driverQualificationEnum +
-                ", driver=" + driver +
-                '}';
+        return "\nТранспорт № " + id + ", модель: " + brandOfTransport + ", кличество метс для пассажиров: " +
+                ", квалификация водителя: " + driverQualificationEnum;
     }
 }

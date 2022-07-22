@@ -78,10 +78,6 @@ public class Route {
 
     @Override
     public String toString() {
-        return "\nRoute{" +
-                "id=" + id +
-                ", startOfWay='" + startOfWay + '\'' +
-                ", endOfWay='" + endOfWay + '\'' +
-                ", transport=" + transport;
+        return "\nМаршрут № " + id + ", начало пути: "+startOfWay+ ", конец пути: " + endOfWay;
     }
 }
