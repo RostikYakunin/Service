@@ -63,18 +63,21 @@ public class ConsolePanel {
             switch (number) {
                 case 1:
                     addTransport();
+                    startPanel();
                     break;
                 case 2:
                     addRoute();
+                    startPanel();
                     break;
                 case 3:
                     addDriver();
+                    startPanel();
                     break;
                 case 4:
                     serviceForTransports();
                     break;
                 case 5:
-//                    serviceForRouts();
+                    serviceForRouts();
                     break;
                 case 6:
                     serviceForDrivers();
@@ -459,6 +462,62 @@ public class ConsolePanel {
 
     private void timerForTransports() throws InterruptedException {
         System.out.println("Через 5 секунд возвращаю в меню сервиса транспорта !");
+        Thread.sleep(5000);
+        serviceForTransports();
+    }
+
+    private void serviceForRouts () throws InterruptedException {
+
+        System.out.println("===========================================================================================");
+        System.out.println("Введите номер желаемого действия: \n");
+        System.out.println("Добавить маршрут введите - 1 ");
+        System.out.println("Удалить маршрут введите - 2");
+        System.out.println("Найти маршрут по id введите - 3 ");
+        System.out.println("Найти все маршруты введите - 4 ");
+        System.out.println("Найти маршруты без транспорта - 5 ");
+        System.out.println("Вернуться в главное меню - 6 ");
+
+        Scanner in1 = new Scanner(System.in);
+        int switcher = in1.nextInt();
+
+        switch (switcher) {
+            case 1:
+                addRoute();
+                timerForRouts();
+                break;
+            case 2:
+                Scanner in2 = new Scanner(System.in);
+                System.out.println("Введите id маршрута который хотите удалить: ");
+                int id2 = in2.nextInt();
+                routeService.removeRoute(id2);
+                timerForRouts();
+                break;
+            case 3:
+                Scanner in3 = new Scanner(System.in);
+                System.out.println("Введите id маршрута который хотите найти: ");
+                int id3 = in3.nextInt();
+                routeService.findRouteById(id3);
+                timerForRouts();
+                break;
+            case 4:
+                routeService.findAllRoutes();
+                timerForRouts();
+            case 5:
+                routeService.findAllRoutesWithoutTransport();
+                timerForRouts();
+                break;
+            case 6:
+                startPanel();
+                break;
+            default:
+                System.out.println("Некоректный ввод ! Попробуйте снова");
+                serviceForRouts();
+        }
+
+    }
+
+    private void timerForRouts() throws InterruptedException {
+        System.out.println("Через 5 секунд возвращаю в меню сервиса маршрутов !");
         Thread.sleep(5000);
         serviceForTransports();
     }
