@@ -31,7 +31,7 @@ public class DriverServiceImpl implements DriverService {
         } else {
             System.err.println("Введено некоректное значение ! ");
         }
-        return driversRepo.add(driver);
+        return null;
     }
 
     @Override
@@ -111,9 +111,6 @@ public class DriverServiceImpl implements DriverService {
             }
         }
 
-        if (transportListtemp.isEmpty()) {
-            System.err.println("Лист пуст !");
-        }
         return transportListtemp;
     }
 
@@ -122,13 +119,13 @@ public class DriverServiceImpl implements DriverService {
         if (driver != null && transport != null) {
             if (driver.getQualificationEnum().equals(transport.getDriverQualificationEnum())) {
                 transport.setDriver(driver);
+                System.out.println("Водитель успешно добавлен на транспорт !");
             } else {
                 System.err.println("Невозможно добавить водителя на транспорт !" +
                         "Квалификация водителя или транспорта не совпадают !");
                 return null;
             }
-        } else System.err.println("Введенного водителя или трансопрта не найдено !");
-
+        } else System.err.println("Введенного водителя или транспорта не найдено !");
         return transport;
     }
 }

@@ -25,7 +25,7 @@ public class TransportServiceImpl implements TransportService {
         } else {
             System.err.println("Введено некоректное значение ! ");
         }
-        return transportRepo.add(transport);
+        return null;
     }
 
     @Override
@@ -91,9 +91,6 @@ public class TransportServiceImpl implements TransportService {
             }
         }
 
-        if (tempList.isEmpty()) {
-            System.err.println("Лист пуст !");
-        }
         return tempList;
     }
 
