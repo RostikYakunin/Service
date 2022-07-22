@@ -78,6 +78,7 @@ public class Driver {
     @Override
     public String toString() {
         return "\nВодитель № "+ id + ", имя: "+ nameOfDriver + ", фамилия: "+ surnameOfDriver+ ", номер телефона: " + numberOfPhone +
-                ", квалификация: " + qualificationEnum;
+                ", квалификация: " +
+                (qualificationEnum.equals(DriverQualificationEnum.BUS_DRIVER)?" водитель автобуса":" водитель трамвая");
     }
 }

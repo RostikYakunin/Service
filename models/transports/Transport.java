@@ -100,7 +100,8 @@ public class Transport {
 
     @Override
     public String toString() {
-        return "\nТранспорт № " + id + ", модель: " + brandOfTransport + ", количество мест для пассажиров: " +
-                ", квалификация водителя: " + driverQualificationEnum;
+        return "\nТранспорт № " + id + ", модель: " + brandOfTransport + ", количество мест для пассажиров: " + numbersOfPassengers+
+                ", квалификация водителя: " +
+                (driverQualificationEnum.equals(DriverQualificationEnum.BUS_DRIVER)?" водитель автобуса" : " водитель трамвая");
     }
 }
