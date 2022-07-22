@@ -30,6 +30,11 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public Driver addDriver(Driver driver) {
+        if (driver != null){
+            driversRepo.add(driver);
+        } else {
+            System.err.println("Введено некоректное значение ! ");
+        }
         return driversRepo.add(driver);
     }
 
@@ -43,9 +48,8 @@ public class DriverServiceImpl implements DriverService {
                 System.err.println("Невозможно удалить водителя ! Данный водитель зареплен за транспортом !");
             }
         } else {
-            System.out.println("Водителя с таким id не существует !");
+            System.err.println("Водителя с таким id не существует !");
         }
-
     }
 
     @Override
@@ -68,10 +72,14 @@ public class DriverServiceImpl implements DriverService {
                     if (dr.getSurnameOfDriver().equals(surname)) {
                         list.add(dr);
                     }
-                } else {
-                    System.err.println("Введенной фамилии водителя не найдено !");
                 }
             }
+        } else {
+            System.out.println("Введено некоректное значение ! ");
+        }
+
+        if (list.isEmpty()){
+            System.err.println("Введенной фамилии не существует !");
         }
         return list;
     }
@@ -110,12 +118,14 @@ public class DriverServiceImpl implements DriverService {
             }
         }
 
+        if (transportListtemp.isEmpty()) {
+            System.out.println("Лист пуст !");
+        }
         return transportListtemp;
     }
 
     @Override
     public Transport addDriverOnTransport(Driver driver, Transport transport) {
-
         if (driver != null && transport != null) {
             if (driver.getQualificationEnum().equals(transport.getDriverQualificationEnum())) {
                 transport.setDriver(driver);
