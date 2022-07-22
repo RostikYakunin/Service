@@ -41,9 +41,6 @@ public class Transport {
         this.driver = driver;
     }
 
-    public Transport(int id, String brand, int passangers, boolean hasDriver, DriverQualificationEnum busDriver, String type, Integer valueOf) {
-    }
-
     public Integer getId() {
         return id;
     }
@@ -103,7 +100,7 @@ public class Transport {
 
     @Override
     public String toString() {
-        return "\nТранспорт № " + id + ", модель: " + brandOfTransport + ", кличество метс для пассажиров: " +
+        return "\nТранспорт № " + id + ", модель: " + brandOfTransport + ", количество мест для пассажиров: " +
                 ", квалификация водителя: " + driverQualificationEnum;
     }
 }
