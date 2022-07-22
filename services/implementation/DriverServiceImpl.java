@@ -19,10 +19,6 @@ public class DriverServiceImpl implements DriverService {
     DriversRepo driversRepo;
     TransportRepo transportRepo;
 
-    public DriverServiceImpl(DriversRepo driversRepo) {
-        this.driversRepo = driversRepo;
-    }
-
     public DriverServiceImpl(DriversRepo driversRepo, TransportRepo transportRepo) {
         this.driversRepo = driversRepo;
         this.transportRepo = transportRepo;

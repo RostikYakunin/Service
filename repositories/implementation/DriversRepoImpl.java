@@ -2,6 +2,7 @@ package courseworke3.repositories.implementation;
 
 import courseworke3.models.drivers.Driver;
 import courseworke3.repositories.repointerfaces.DriversRepo;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,30 +16,26 @@ public class DriversRepoImpl implements DriversRepo {
 
     @Override
     public Driver add(Driver driver) {
-        listOfDrivers.add(driver);
+        if (driver != null) {
+            listOfDrivers.add(driver);
+        }
         return driver;
     }
 
     @Override
     public void remove(Integer id) {
-        List <Driver> list = listOfDrivers;
-        for (Driver d:list) {
-            if (d.getId().equals(id)) {
-                d = null;
-            }
-        }
+        List<Driver> list = listOfDrivers;
+        list.remove(findById(id));
         listOfDrivers = list;
     }
 
     @Override
     public Driver findById(Integer id) {
-        if (id<listOfDrivers.size()) return listOfDrivers.get(id);
-        else return null;
+        return listOfDrivers.get(id);
     }
 
     @Override
     public List<Driver> findAll() {
         return listOfDrivers;
     }
-
 }

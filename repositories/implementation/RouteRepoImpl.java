@@ -11,7 +11,7 @@ import java.util.Objects;
 
 public class RouteRepoImpl implements RouteRepo {
 
-    private List <Route> listOfRoutes;
+    private List<Route> listOfRoutes;
 
     public List<Route> getListOfRoutes() {
         return listOfRoutes;
@@ -23,29 +23,24 @@ public class RouteRepoImpl implements RouteRepo {
 
     @Override
     public Route add(Route route) {
-       listOfRoutes.add(route);
-       return route;
+        listOfRoutes.add(route);
+        return route;
     }
 
     @Override
     public void remove(Integer id) {
-        List <Route> list = listOfRoutes;
-        for (Route r:list) {
-            if (r.getId().equals(id)) {
-                r = null;
-            }
-        }
+        List<Route> list = listOfRoutes;
+        list.remove(findById(id));
         listOfRoutes = list;
     }
 
     @Override
     public Route findById(Integer id) {
-       return listOfRoutes.get(id);
+        return listOfRoutes.get(id);
     }
 
     @Override
     public List<Route> findAll() {
         return listOfRoutes;
     }
-
 }
