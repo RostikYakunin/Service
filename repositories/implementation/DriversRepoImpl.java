@@ -25,10 +25,8 @@ public class DriversRepoImpl implements DriversRepo {
     @Override
     public void remove(Integer id) {
         List<Driver> list = listOfDrivers;
-        if (list.get(id) != null) {
-            list.remove(findById(id));
-        }
-        listOfDrivers = list;
+       list.remove(findById(id));
+       listOfDrivers = list;
     }
 
     @Override
