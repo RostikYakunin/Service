@@ -99,7 +99,7 @@ public class ConsolePanel {
 
     private void addTransport() {
         Scanner in = new Scanner(System.in);
-        Transport bus = null;
+        Transport bus;
         Transport tram = null;
 
         System.out.println("Какой транспорт вы хотите создать ?");
@@ -109,99 +109,104 @@ public class ConsolePanel {
 
         //создание автобуса
         try {
-            if (switchTransports == 1) {
-                System.out.println("Введите id автобуса: \"id должно быть целым числом и не может быть меньше 0\" ");
-                int id = in.nextInt();
-                if (id % 2 != 1 && id % 2 != 0) {
-                    System.err.println("Введенное число не являеться целым ! Возвращаю на начало создания транспорта");
-                    addTransport();
-                } else if (id < 0) {
-                    System.err.println("Введенное число меньше 0 ! Возвращаю на начало создания транспорта");
-                    addTransport();
-                } else {
-                    Scanner in1 = new Scanner(System.in);
-                    System.out.println("Введите марку автобуса: ");
-                    String brand = in1.nextLine();
-
-                    System.out.println("Введите количество пассажиров в автобусе:");
-                    int passangers = in1.nextInt();
-                    if (passangers % 2 != 1 && passangers % 2 != 0) {
+            switch (switchTransports) {
+                case 1:
+                    System.out.println("Введите id автобуса: \"id должно быть целым числом и не может быть меньше 0\" ");
+                    int id = in.nextInt();
+                    if (id % 2 != 1 && id % 2 != 0) {
                         System.err.println("Введенное число не являеться целым ! Возвращаю на начало создания транспорта");
                         addTransport();
-                    } else if (passangers < 0) {
+                    } else if (id < 0) {
                         System.err.println("Введенное число меньше 0 ! Возвращаю на начало создания транспорта");
                         addTransport();
                     } else {
-                        Scanner in2 = new Scanner(System.in);
-                        System.out.println("Введите тип транспорта:");
-                        String type = in2.nextLine();
+                        Scanner in1 = new Scanner(System.in);
+                        System.out.println("Введите марку автобуса: ");
+                        String brand = in1.nextLine();
 
-                        System.out.println("Введите количество дверей в автобусе");
-                        int doors = in2.nextInt();
-                        if (doors % 2 != 1 && doors % 2 != 0) {
+                        System.out.println("Введите количество пассажиров в автобусе:");
+                        int passangers = in1.nextInt();
+                        if (passangers % 2 != 1 && passangers % 2 != 0) {
                             System.err.println("Введенное число не являеться целым ! Возвращаю на начало создания транспорта");
                             addTransport();
-                        } else if (doors < 0) {
+                        } else if (passangers < 0) {
                             System.err.println("Введенное число меньше 0 ! Возвращаю на начало создания транспорта");
                             addTransport();
                         } else {
-                            bus = new Bus(id, brand, passangers, false,
-                                    DriverQualificationEnum.BUS_DRIVER, type, doors);
+                            Scanner in2 = new Scanner(System.in);
+                            System.out.println("Введите тип транспорта:");
+                            String type = in2.nextLine();
+
+                            System.out.println("Введите количество дверей в автобусе");
+                            int doors = in2.nextInt();
+                            if (doors % 2 != 1 && doors % 2 != 0) {
+                                System.err.println("Введенное число не являеться целым ! Возвращаю на начало создания транспорта");
+                                addTransport();
+                            } else if (doors < 0) {
+                                System.err.println("Введенное число меньше 0 ! Возвращаю на начало создания транспорта");
+                                addTransport();
+                            } else {
+                                bus = new Bus(id, brand, passangers, false,
+                                        DriverQualificationEnum.BUS_DRIVER, type, doors);
+                                transportService.addTransport(bus);
+                                System.out.println("------------------------------------------------------------------------------------");
+                                System.out.println("Вы успешно создали автобус: " + bus);
+                                System.out.println("------------------------------------------------------------------------------------");
+                            }
                         }
                     }
-                }
-                transportService.addTransport(bus);
-                System.out.println("------------------------------------------------------------------------------------");
-                System.out.println("Вы успешно создали автобус: " + bus);
-                System.out.println("------------------------------------------------------------------------------------");
+                    break;
 
-            }
-            //создание трамвая
-            if (switchTransports == 2) {
-                System.out.println("Введите id трамвая: \"id должно быть целым числом и не может быть меньше 0\" ");
-                int id = in.nextInt();
-                if (id % 2 != 1 && id % 2 != 0) {
-                    System.err.println("Введенное число не являеться целым ! Возвращаю на начало создания транспорта");
-                    addTransport();
-                } else if (id < 0) {
-                    System.err.println("Введенное число меньше 0 ! Возвращаю на начало создания транспорта");
-                    addTransport();
-                } else {
-                    System.out.println("Введите марку трамвая: ");
-                    Scanner in1 = new Scanner(System.in);
-                    String brand = in1.nextLine();
-                    System.out.println("Введите количество пассажиров в трамвае:");
-                    int passangers = in1.nextInt();
-                    if (passangers % 2 != 1 && passangers % 2 != 0) {
+                case 2:
+                    in = new Scanner(System.in);
+                    System.out.println("Введите id трамвая: \"id должно быть целым числом и не может быть меньше 0\" ");
+                    id = in.nextInt();
+                    if (id % 2 != 1 && id % 2 != 0) {
                         System.err.println("Введенное число не являеться целым ! Возвращаю на начало создания транспорта");
                         addTransport();
-                    } else if (passangers < 0) {
+                    } else if (id < 0) {
                         System.err.println("Введенное число меньше 0 ! Возвращаю на начало создания транспорта");
                         addTransport();
                     } else {
-                        Scanner in2 = new Scanner(System.in);
-                        System.out.println("Введите количество вагонов в трамвае:");
-                        int railcar = in2.nextInt();
-                        if (railcar % 2 != 1 && railcar % 2 != 0) {
+                        System.out.println("Введите марку трамвая: ");
+                        Scanner in1 = new Scanner(System.in);
+                        String brand = in1.nextLine();
+                        System.out.println("Введите количество пассажиров в трамвае:");
+                        int passangers = in1.nextInt();
+                        if (passangers % 2 != 1 && passangers % 2 != 0) {
                             System.err.println("Введенное число не являеться целым ! Возвращаю на начало создания транспорта");
                             addTransport();
-                        } else if (railcar < 0) {
+                        } else if (passangers < 0) {
                             System.err.println("Введенное число меньше 0 ! Возвращаю на начало создания транспорта");
                             addTransport();
                         } else {
-                            tram = new Tram(id, brand, passangers, false,
-                                    DriverQualificationEnum.TRAM_DRIVER, railcar);
+                            Scanner in2 = new Scanner(System.in);
+                            System.out.println("Введите количество вагонов в трамвае:");
+                            int railcar = in2.nextInt();
+                            if (railcar % 2 != 1 && railcar % 2 != 0) {
+                                System.err.println("Введенное число не являеться целым ! Возвращаю на начало создания транспорта");
+                                addTransport();
+                            } else if (railcar < 0) {
+                                System.err.println("Введенное число меньше 0 ! Возвращаю на начало создания транспорта");
+                                addTransport();
+                            } else {
+                                tram = new Tram(id, brand, passangers, false,
+                                        DriverQualificationEnum.TRAM_DRIVER, railcar);
+                            }
                         }
                     }
+                    transportService.addTransport(tram);
+                    System.out.println("------------------------------------------------------------------------------------");
+                    System.out.println("Вы успешно создали трамвай: " + tram);
+                    System.out.println("------------------------------------------------------------------------------------");
+                    break;
+
+                default: {
+                    System.err.println("Введено некоректное значение ! Возвращаю на начало создание транспорта !");
+                    addTransport();
                 }
-                transportService.addTransport(tram);
-                System.out.println("------------------------------------------------------------------------------------");
-                System.out.println("Вы успешно создали трамвай: " + tram);
-                System.out.println("------------------------------------------------------------------------------------");
-            } else {
-                System.err.println("Введено некоректное значение ! Возвращаю на начало создание транспорта !");
-                addTransport();
             }
+
         } catch (InputMismatchException e) {
             System.err.println("Введено некоректное значение ! Возвращаю на начало создание транспорта !");
             addTransport();
