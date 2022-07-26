@@ -1,9 +1,10 @@
 package courseworke3;
 
-import courseworke3.console.ConsolePanel;
+import courseworke3.console.ConsoleMain;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-       ConsolePanel PRESS_RUN = new ConsolePanel();
+        ConsoleMain consoleMain = new ConsoleMain();
+        consoleMain.startPanel();
     }
 }
