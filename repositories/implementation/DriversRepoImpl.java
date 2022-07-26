@@ -8,7 +8,7 @@ import java.util.List;
 
 public class DriversRepoImpl implements DriversRepo {
 
-    private List<Driver> listOfDrivers;
+    private final List<Driver> listOfDrivers;
 
     public DriversRepoImpl() {
         this.listOfDrivers = new ArrayList<>();
@@ -24,15 +24,13 @@ public class DriversRepoImpl implements DriversRepo {
 
     @Override
     public void remove(Integer id) {
-        List<Driver> list = listOfDrivers;
-       list.remove(findById(id));
-       listOfDrivers = list;
+        listOfDrivers.remove(findById(id));
     }
 
     @Override
     public Driver findById(Integer id) {
-        for (Driver dr: listOfDrivers) {
-            if (dr.getId().equals(id)){
+        for (Driver dr : listOfDrivers) {
+            if (dr.getId().equals(id)) {
                 return dr;
             }
         }

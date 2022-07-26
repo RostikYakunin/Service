@@ -11,7 +11,7 @@ import java.util.List;
 
 public class TransportRepoImpl implements TransportRepo {
 
-    private List<Transport> listOfTransports;
+    private final List<Transport> listOfTransports;
 
     public TransportRepoImpl() {
         this.listOfTransports = new ArrayList<>();
@@ -25,9 +25,7 @@ public class TransportRepoImpl implements TransportRepo {
 
     @Override
     public void remove(Integer id) {
-        List<Transport> list = listOfTransports;
-        list.remove(findById(id));
-        listOfTransports = list;
+        listOfTransports.remove(findById(id));
     }
 
     @Override

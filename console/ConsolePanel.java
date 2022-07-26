@@ -1,4 +1,4 @@
-package courseworke3;
+package courseworke3.console;
 
 import courseworke3.models.Route;
 import courseworke3.models.drivers.Driver;
@@ -49,13 +49,10 @@ public class ConsolePanel {
         System.out.println("============================================================================================");
         System.out.println("Главное меню ! \nВведите действие которое хотите выполнить !");
         System.out.println("---------------------------------------------------------------------------------------------");
-        System.out.println("Добавить транспорт - введите \"1\" ");
-        System.out.println("Добавить маршрут - введите \"2\" ");
-        System.out.println("Добавить водителя - введите \"3\" ");
-        System.out.println("Сервис работы с транспортом - введите \"4\" ");
-        System.out.println("Сервис работы с маршрутами - введите \"5\" ");
-        System.out.println("Сервис работы с водителями - введите \"6\" ");
-        System.out.println("Выйти из программы - введите \"7\" ");
+        System.out.println("Сервис работы с транспортом - введите \"1\" ");
+        System.out.println("Сервис работы с маршрутами - введите \"2\" ");
+        System.out.println("Сервис работы с водителями - введите \"3\" ");
+        System.out.println("Выйти из программы - введите \"0\" ");
         System.out.println("---------------------------------------------------------------------------------------------");
 
         try {
@@ -64,27 +61,15 @@ public class ConsolePanel {
 
             switch (number) {
                 case 1:
-                    addTransport();
-                    timerForStartPanel();
-                    break;
-                case 2:
-                    addRoute();
-                    timerForStartPanel();
-                    break;
-                case 3:
-                    addDriver();
-                    timerForStartPanel();
-                    break;
-                case 4:
                     serviceForTransports();
                     break;
-                case 5:
+                case 2:
                     serviceForRouts();
                     break;
-                case 6:
+                case 3:
                     serviceForDrivers();
                     break;
-                case 7:
+                case 0:
                     System.exit(0);
                     break;
                 default:
